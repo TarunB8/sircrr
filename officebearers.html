@@ -1,264 +1,766 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Management Committee - Sir C.R. Reddy Educational Institutions</title>
-<style>
-* {
-    box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, sans-serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Bearers - Sir C.R. Reddy Educational Institutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============= CORE STYLES ============= */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
 
-body {
-    margin: 0;
-    padding: 0; /* required for header/footer layout */
-    background: linear-gradient(135deg, #f2f6fc, #e3ecff);
-    color: #222;
-}
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #d4a574;
+            --light-bg: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-muted: #666;
+            --border-light: #e0e0e0;
+            --primary-brown: #a0522d;
+            --primary-teal: #008b8b;
+            --dark-blue: #1a237e;
+        }
 
-/* Main wrapper */
-main {
-    padding: 30px;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-    padding: 30px 35px;
-}
+        body { 
+            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.7; 
+            color: var(--text-dark); 
+            background-color: #fff; 
+        }
 
-/* Page Title */
-h1 {
-    text-align: center;
-    color: #0d47a1;
-    font-size: 32px;
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
-}
+        /* ============= UTILITY NAVIGATION ============= */
+        .utility-nav { 
+            background: var(--primary); 
+            color: white; 
+            padding: 10px 20px; 
+            display: flex; 
+            justify-content: flex-end; 
+            gap: 20px; 
+            font-size: 13px; 
+            flex-wrap: wrap;
+        }
 
-.subtitle {
-    text-align: center;
-    color: #555;
-    font-size: 18px;
-    margin-bottom: 30px;
-}
+        .utility-nav a { 
+            color: white; 
+            text-decoration: none; 
+            transition: color 0.3s ease;
+        }
 
-/* Section Titles */
-h2 {
-    margin-top: 35px;
-    color: #1a237e;
-    font-size: 21px;
-    border-left: 6px solid #1a237e;
-    padding-left: 10px;
-}
+        .utility-nav a:hover {
+            color: var(--accent);
+        }
 
-/* Leadership Section */
-.leadership-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 22px;
-    margin-top: 20px;
-}
+        .utility-nav span {
+            margin: 0 10px;
+        }
 
-.leadership-card {
-    display: flex;
-    gap: 16px;
-    background: #f9fbff;
-    border: 1px solid #dbe4ff;
-    border-radius: 12px;
-    padding: 16px;
-    align-items: center;
-    transition: 0.3s ease;
-}
+        /* ============= HEADER ============= */
+        header { 
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); 
+            color: white; 
+            padding: 20px 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12); 
+        }
 
-.leadership-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
+        .header-content { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+        }
 
-.leadership-photo img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #1565c0;
-}
+        .logo-area { 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            flex: 1;
+        }
 
-.leadership-info h3 {
-    margin: 0;
-    font-size: 24px;
-    color: #0d47a1;
-}
+        .logo-area img {
+            height: 100px;
+            width: auto;
+            background: white;
+            padding: 5px;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
 
-.role {
-    font-weight: 600;
-    color: #1565c0;
-    margin: 4px 0 6px;
-    font-size: 14px;
-}
+        .title-area h1 { 
+            font-size: 28px; 
+            font-weight: 700; 
+            margin: 0; 
+            letter-spacing: 1.2px;
+        }
 
-.leadership-info p {
-    margin: 0;
-    font-size: 16px;
-    color: #444;
-}
+        .title-area p { 
+            font-size: 13px; 
+            margin-top: 3px; 
+            opacity: 0.95; 
+            font-weight: 500;
+        }
 
-/* Management Committee Section */
-.management-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 22px;
-    margin-top: 20px;
-}
+        /* ============= NAVIGATION STYLES ============= */
+        nav { 
+            background: white; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); 
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
 
-.member-card {
-    background: #f9fbff;
-    border: 1px solid #dbe4ff;
-    border-radius: 12px;
-    padding: 18px;
-    text-align: center;
-    transition: 0.3s ease;
-}
+        .nav-container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: flex; 
+            align-items: center; 
+        }
 
-.member-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            width: 100%; 
+            margin: 0; 
+            padding: 0; 
+        }
 
-.member-photo img {
-    width: 95px;
-    height: 95px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #1565c0;
-    margin-bottom: 10px;
-}
+        .nav-item { 
+            position: relative; 
+            flex: 1; 
+        }
 
-.member-info h3 {
-    margin: 6px 0 4px;
-    font-size: 16px;
-    color: #0d47a1;
-}
+        .nav-link { 
+            display: block; 
+            padding: 15px 18px; 
+            text-decoration: none; 
+            color: var(--secondary); 
+            font-size: 13px; 
+            font-weight: 600; 
+            text-align: center; 
+            border-bottom: 3px solid transparent; 
+            transition: all 0.3s ease; 
+        }
 
-.member-info .role {
-    font-size: 13.5px;
-    color: #1565c0;
-    font-weight: 600;
-}
+        .nav-link:hover { 
+            color: var(--primary); 
+            border-bottom-color: var(--accent); 
+            background: rgba(212, 165, 116, 0.05); 
+        }
 
-/* Responsive */
-@media (max-width: 768px) {
-    main {
-        padding: 12px;
-    }
-    h1 {
-        font-size: 22px;
-    }
-}
-</style>
+        /* Dropdown Styles */
+        .dropdown-menu { 
+            display: none; 
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            background: white; 
+            min-width: 300px; 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+            border-top: 4px solid var(--accent); 
+            z-index: 1000;
+            border-radius: 6px; 
+            overflow: hidden;
+        }
+
+        .nav-item:hover .dropdown-menu { 
+            display: block; 
+            animation: slideDown 0.3s ease; 
+        }
+
+        @keyframes slideDown { 
+            from { 
+                opacity: 0; 
+                transform: translateY(-10px); 
+            } 
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            } 
+        }
+
+        .dropdown-menu a { 
+            display: block; 
+            padding: 12px 20px; 
+            color: var(--text-dark); 
+            text-decoration: none; 
+            font-size: 13px; 
+            border-left: 4px solid transparent; 
+            text-align: left; 
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu a:hover { 
+            background: var(--light-bg); 
+            border-left-color: var(--accent); 
+            color: var(--primary); 
+            padding-left: 25px; 
+        }
+
+        /* ============= MOBILE MENU TOGGLE ============= */
+        .menu-toggle { 
+            display: none; 
+            background: none; 
+            border: none; 
+            color: white; 
+            font-size: 24px; 
+            cursor: pointer; 
+            z-index: 200;
+        }
+
+        /* ============= MAIN CONTENT ============= */
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+
+        .main-header { 
+            text-align: center; 
+            padding: 40px 20px; 
+            background: white; 
+            margin-bottom: 30px; 
+        }
+
+        .main-header h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.5rem; 
+            color: var(--primary-brown); 
+            text-transform: uppercase; 
+            margin-bottom: 10px;
+        }
+
+        .main-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* ============= SECTION BLOCKS ============= */
+        .section-block { 
+            background: #fff; 
+            margin-bottom: 40px; 
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08); 
+            border-radius: 8px; 
+            overflow: hidden; 
+        }
+
+        .section-header-strip { 
+            background: linear-gradient(90deg, #bf4b38 0%, #a0522d 100%); 
+            color: white; 
+            padding: 15px 30px; 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.5rem; 
+            border-left: 8px solid #8b3a26; 
+            font-weight: 700;
+        }
+
+        .section-header-strip.teal { 
+            background: linear-gradient(90deg, #008b8b 0%, #00695c 100%); 
+            border-left: 8px solid #004d40; 
+        }
+
+        .section-header-strip.blue { 
+            background: linear-gradient(90deg, #1a4d6d 0%, #0d2b3e 100%); 
+            border-left: 8px solid #000; 
+        }
+
+        .content-wrapper { 
+            padding: 40px; 
+        }
+
+        .content-wrapper p {
+            margin-bottom: 15px;
+        }
+
+        .grid-2-col { 
+            display: grid; 
+            grid-template-columns: 1fr 1.5fr; 
+            gap: 40px; 
+            align-items: start;
+        }
+
+        .grid-2-col.reverse { 
+            grid-template-columns: 1.5fr 1fr; 
+        }
+
+        .portrait-frame { 
+            text-align: center;
+            position: sticky;
+            top: 150px;
+        }
+
+        .portrait-frame img { 
+            width: 100%; 
+            max-width: 320px; 
+            border-radius: 4px; 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+            border: 1px solid #ddd; 
+        }
+
+        .portrait-caption {
+            margin-top: 15px;
+            font-weight: 600;
+            color: var(--primary-brown);
+            font-size: 0.95rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .member-name {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-brown);
+            margin-bottom: 8px;
+        }
+
+        .member-role {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .member-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .member-description p {
+            margin-bottom: 12px;
+        }
+
+        .member-description strong {
+            color: var(--primary-brown);
+        }
+
+        /* ============= FOOTER STYLES ============= */
+        footer { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); 
+            color: white; 
+            padding: 50px 20px 20px; 
+            margin-top: 50px; 
+        }
+
+        .footer-container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+
+        .footer-content { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 35px; 
+            margin-bottom: 30px; 
+        }
+
+        .footer-section h3 { 
+            font-size: 14px; 
+            color: var(--accent); 
+            margin-bottom: 15px; 
+            text-transform: uppercase; 
+            font-weight: 700; 
+        }
+
+        .footer-section ul { 
+            list-style: none; 
+            padding: 0; 
+        }
+
+        .footer-section li { 
+            margin-bottom: 8px; 
+            font-size: 13px; 
+            opacity: 0.95; 
+        }
+
+        .footer-section p {
+            font-size: 13px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .footer-section a { 
+            color: white; 
+            text-decoration: none; 
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover { 
+            color: var(--accent); 
+        }
+
+        .footer-bottom { 
+            text-align: center; 
+            font-size: 12px; 
+            border-top: 1px solid rgba(255, 255, 255, 0.15); 
+            padding-top: 20px; 
+        }
+
+        /* ============= RESPONSIVE DESIGN ============= */
+        @media (max-width: 768px) {
+            .menu-toggle { 
+                display: block; 
+            }
+
+            .nav-menu { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                width: 100%; 
+                background: white; 
+                top: 100%; 
+                left: 0; 
+            }
+
+            .nav-menu.active { 
+                display: flex; 
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .nav-link {
+                text-align: left;
+                padding: 12px 20px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                box-shadow: none;
+                background: var(--light-bg);
+            }
+
+            .nav-item:hover .dropdown-menu {
+                display: block;
+            }
+
+            .grid-2-col, 
+            .grid-2-col.reverse { 
+                grid-template-columns: 1fr; 
+            }
+
+            .title-area h1 { 
+                font-size: 18px; 
+            }
+
+            .logo-area img {
+                height: 70px;
+            }
+
+            .main-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-header-strip {
+                font-size: 1.2rem;
+                padding: 12px 20px;
+            }
+
+            .content-wrapper {
+                padding: 20px;
+            }
+
+            .portrait-frame {
+                position: static;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .utility-nav {
+                padding: 8px 10px;
+                gap: 10px;
+                font-size: 11px;
+            }
+
+            .utility-nav span {
+                margin: 0 5px;
+            }
+
+            .title-area h1 {
+                font-size: 14px;
+            }
+
+            .title-area p {
+                font-size: 11px;
+            }
+
+            .logo-area img {
+                height: 50px;
+            }
+
+            .main-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .section-header-strip {
+                font-size: 1rem;
+                padding: 10px 15px;
+                border-left-width: 5px;
+            }
+
+            .member-role {
+                font-size: 0.9rem;
+            }
+
+            .portrait-frame img {
+                max-width: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- HEADER CONTAINER - Auto-loaded from components -->
+    <div id="header-container"></div>
 
-<!-- Header loads here -->
-<div id="header-container"></div>
+    <!-- ============= MAIN HEADER ============= -->
+    <div class="main-header">
+        <div class="container">
+            <h1>Office Bearers</h1>
+            <p>Leadership & Vision of Sir C.R. Reddy Educational Institutions</p>
+        </div>
+    </div>
 
-<main>
-<div class="container">
-    <h1>OFFICE BEARERS</h1>
-    <div class="subtitle">Sir C.R. Reddy Educational Institutions</div>
+    <!-- ============= MAIN CONTENT ============= -->
+    <div class="container">
 
-    <div class="leadership-grid">
-
-        <div class="leadership-card">
-            <div class="leadership-photo">
-                <img src="/members-images/president.jpg" alt="Dr. Alluri Indra Kumar">
+        <!-- ============= SECTION 1: PRESIDENT ============= -->
+        <div class="section-block">
+            <div class="section-header-strip">
+                President
             </div>
-            <div class="leadership-info">
-                <h3>Dr. Alluri Indra Kumar</h3>
-                <p class="role">President</p>
-                <p>Continuing the legacy with vision and commitment to educational excellence and student development.</p>
+            <div class="content-wrapper">
+                <div class="grid-2-col reverse">
+                    <div>
+                        <h2 class="member-name">Dr. Alluri Indra Kumar</h2>
+                        <p class="member-role">President</p>
+                        
+                        <div class="member-description">
+                            <p><strong>Dr. Alluri Indra Kumar</strong> stands at the helm of Sir C.R. Reddy Educational Institutions as President, continuing the proud legacy established by visionary educators and philanthropists. With a deep commitment to educational excellence and the holistic development of students, Dr. Kumar brings both scholarly acumen and administrative expertise to this esteemed position.</p>
+
+                            <p>Under his visionary leadership, the institution continues to uphold the founding principles of providing quality education that transforms lives and fosters intellectual growth. Dr. Kumar is dedicated to advancing the academic standards across all educational verticals of the institution, from primary education through postgraduate and doctoral programs.</p>
+
+                            <p>His tenure as President is marked by a commitment to fostering an inclusive educational environment where students from diverse socioeconomic backgrounds can access world-class education. He actively champions the adoption of modern pedagogical approaches while preserving the institutional values that have made Sir C.R. Reddy Institutions a beacon of academic excellence in Andhra Pradesh.</p>
+
+                            <p>Dr. Kumar's strategic vision encompasses the expansion of professional and technical programs, the enhancement of infrastructure facilities, and the cultivation of partnerships with national and international academic institutions. His leadership ensures that the institution remains at the forefront of educational innovation while maintaining steadfast commitment to the educational empowerment of students.</p>
+
+                            <p>Through his administrative oversight and intellectual guidance, Dr. Alluri Indra Kumar embodies the spirit of educational leadership, ensuring that Sir C.R. Reddy Educational Institutions continues to shape generations of enlightened citizens who contribute meaningfully to society and the nation.</p>
+                        </div>
+                    </div>
+                    <div class="portrait-frame">
+                        <img src="/members-images/president.jpg" alt="Dr. Alluri Indra Kumar">
+                        <div class="portrait-caption">Dr. Alluri Indra Kumar<br>President</div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="leadership-card">
-            <div class="leadership-photo">
-                <img src="/members-images/vice-president-1.jpg" alt="Dr. Vadlapatla Venkata Bala Krishna Rao">
+        <!-- ============= SECTION 2: VICE PRESIDENT 1 ============= -->
+        <div class="section-block">
+            <div class="section-header-strip teal">
+                Vice President
             </div>
-            <div class="leadership-info">
-                <h3>Dr. Vadlapatla Venkata Bala Krishna Rao</h3>
-                <p class="role">Vice President</p>
-                <p>Dedicated to advancing educational standards and institutional development initiatives.</p>
+            <div class="content-wrapper">
+                <div class="grid-2-col">
+                    <div class="portrait-frame">
+                        <img src="/members-images/vice-president-1.jpg" alt="Dr. Vadlapatla Venkata Bala Krishna Rao">
+                        <div class="portrait-caption">Dr. Vadlapatla Venkata Bala<br>Krishna Rao<br>Vice President</div>
+                    </div>
+                    <div>
+                        <h2 class="member-name">Dr. Vadlapatla Venkata Bala Krishna Rao</h2>
+                        <p class="member-role">Vice President</p>
+                        
+                        <div class="member-description">
+                            <p><strong>Dr. Vadlapatla Venkata Bala Krishna Rao</strong> serves as Vice President of Sir C.R. Reddy Educational Institutions with a steadfast dedication to advancing educational standards and institutional development initiatives. His role is instrumental in driving strategic initiatives that enhance the quality of education and expand the reach of institutional programs across multiple educational sectors.</p>
+
+                            <p>With extensive experience in educational administration and institutional management, Dr. Krishna Rao brings a nuanced understanding of contemporary educational challenges and opportunities. He is deeply committed to fostering academic excellence through the implementation of modern teaching methodologies, curricular innovations, and faculty development programs.</p>
+
+                            <p>His responsibilities encompass oversight of academic programs, institutional planning, and the development of strategic partnerships that elevate the institution's standing in national and international academic communities. Dr. Krishna Rao actively advocates for the integration of skill-based learning and professional competencies within the academic curriculum, ensuring that graduates are well-equipped for contemporary career opportunities.</p>
+
+                            <p>Under his guidance, the institution has witnessed significant improvements in academic infrastructure, the establishment of specialized research centers, and the expansion of interdisciplinary programs that address pressing societal challenges. He is passionate about creating an educational ecosystem that promotes critical thinking, innovation, and social responsibility among students.</p>
+
+                            <p>Dr. Vadlapatla Venkata Bala Krishna Rao's vision for the institution centers on building bridges between academia and industry, fostering collaborations that provide students with practical exposure and experiential learning opportunities. His leadership exemplifies a commitment to institutional excellence and the empowerment of students through transformative education.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="leadership-card">
-            <div class="leadership-photo">
-                <img src="/members-images/vice-president-2.jpg" alt="Sri Adusmilli Venkata Subrahmanyam">
+        <!-- ============= SECTION 3: VICE PRESIDENT 2 ============= -->
+        <div class="section-block">
+            <div class="section-header-strip">
+                Vice President
             </div>
-            <div class="leadership-info">
-                <h3>Sri Adusmilli Venkata Subrahmanyam</h3>
-                <p class="role">Vice President</p>
-                <p>Supporting strategic planning and institutional growth across all educational verticals.</p>
+            <div class="content-wrapper">
+                <div class="grid-2-col reverse">
+                    <div>
+                        <h2 class="member-name">Sri Adusmilli Venkata Subrahmanyam</h2>
+                        <p class="member-role">Vice President</p>
+                        
+                        <div class="member-description">
+                            <p><strong>Sri Adusmilli Venkata Subrahmanyam</strong> serves as Vice President with a strong focus on supporting strategic planning and facilitating institutional growth across all educational verticals of Sir C.R. Reddy Educational Institutions. His contributions are vital to the coordinated development and expansion of the institution's diverse academic and professional programs.</p>
+
+                            <p>Sri Subrahmanyam brings considerable administrative acumen and a visionary approach to institutional governance. He is instrumental in formulating comprehensive strategic plans that align institutional objectives with national educational policies and global benchmarks. His role encompasses the coordination of academic initiatives across schools, colleges, and professional institutes operating under the institutional umbrella.</p>
+
+                            <p>His tenure has been characterized by a proactive approach to infrastructure development, including the establishment of state-of-the-art laboratories, digital learning platforms, and collaborative spaces that foster intellectual exchange. Sri Subrahmanyam is committed to ensuring that all educational verticals maintain consistently high standards while catering to the diverse learning needs of students.</p>
+
+                            <p>He actively promotes inter-institutional collaboration, encouraging faculty and students from different departments and institutions to engage in joint research initiatives and cultural programs. His leadership has fostered a spirit of institutional cohesion and collaborative excellence within the broader Sir C.R. Reddy ecosystem.</p>
+
+                            <p>Sri Adusmilli Venkata Subrahmanyam's vision extends to the integration of emerging technologies in educational delivery, the promotion of student-centric learning approaches, and the development of programs that address contemporary societal needs. His strategic oversight ensures sustained institutional growth while maintaining the core values of academic integrity and social responsibility.</p>
+                        </div>
+                    </div>
+                    <div class="portrait-frame">
+                        <img src="/members-images/vice-president-2.jpg" alt="Sri Adusmilli Venkata Subrahmanyam">
+                        <div class="portrait-caption">Sri Adusmilli Venkata<br>Subrahmanyam<br>Vice President</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============= SECTION 4: SECRETARY ============= -->
+        <div class="section-block">
+            <div class="section-header-strip teal">
+                Secretary
+            </div>
+            <div class="content-wrapper">
+                <div class="grid-2-col">
+                    <div class="portrait-frame">
+                        <img src="/members-images/secretary.jpg" alt="Dr. M.B.S.V.V Prasad">
+                        <div class="portrait-caption">Dr. M.B.S.V.V Prasad<br>Secretary</div>
+                    </div>
+                    <div>
+                        <h2 class="member-name">Dr. M.B.S.V.V Prasad</h2>
+                        <p class="member-role">Secretary</p>
+                        
+                        <div class="member-description">
+                            <p><strong>Dr. M.B.S.V.V Prasad</strong> serves as Secretary of Sir C.R. Reddy Educational Institutions, playing a crucial administrative role in the governance and operations of the organization. As Secretary, Dr. Prasad is responsible for coordinating administrative functions, maintaining institutional records, and facilitating communication between various administrative bodies and stakeholders.</p>
+
+                            <p>Dr. Prasad brings extensive experience in institutional management and administrative coordination. His role is fundamental to ensuring the smooth functioning of the institution's administrative machinery, from financial management to human resources coordination and compliance with regulatory requirements.</p>
+
+                            <p>As Secretary, he oversees the preparation of administrative documentation, coordination of board meetings, and the implementation of policies established by the institutional leadership. Dr. Prasad ensures adherence to institutional bylaws and statutory obligations, maintaining transparency in all administrative processes.</p>
+
+                            <p>His responsibilities extend to the coordination of administrative staff across various departments and institutions within the Sir C.R. Reddy Educational ecosystem. He works closely with academic and administrative heads to facilitate the seamless implementation of institutional policies and strategic initiatives.</p>
+
+                            <p>Dr. Prasad's commitment to administrative excellence and organizational efficiency contributes significantly to the institution's operational integrity and institutional governance. His meticulous approach to documentation and record-keeping ensures that all administrative functions are conducted with utmost professionalism and accountability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============= SECTION 5: JOINT SECRETARY 1 ============= -->
+        <div class="section-block">
+            <div class="section-header-strip">
+                Joint Secretary
+            </div>
+            <div class="content-wrapper">
+                <div class="grid-2-col reverse">
+                    <div>
+                        <h2 class="member-name">Sri Vankineni Bhanu Prakash</h2>
+                        <p class="member-role">Joint Secretary</p>
+                        
+                        <div class="member-description">
+                            <p><strong>Sri Vankineni Bhanu Prakash</strong> serves as Joint Secretary of Sir C.R. Reddy Educational Institutions, contributing significantly to the administrative and operational functions of the organization. In his role, Sri Prakash assists in the coordination of administrative activities and supports the Secretary in implementing institutional policies and governance procedures.</p>
+
+                            <p>Sri Bhanu Prakash brings valuable expertise in administrative coordination and institutional management. As Joint Secretary, he plays an important role in liaison between the administrative office and various departments, ensuring effective communication and coordination across the institution.</p>
+
+                            <p>His responsibilities include assisting in the organization of institutional meetings, documentation of decisions, and coordination of administrative compliance matters. Sri Prakash is involved in the development and implementation of administrative procedures that enhance institutional efficiency and foster accountability.</p>
+
+                            <p>He actively participates in administrative planning initiatives and contributes to the development of policies that streamline institutional operations. Sri Prakash's dedication to administrative excellence supports the institution's ability to function smoothly and respond effectively to emerging administrative challenges.</p>
+
+                            <p>Sri Vankineni Bhanu Prakash's role underscores the importance of collaborative administrative leadership in maintaining institutional operations and advancing the institution's commitment to organizational excellence and transparent governance.</p>
+                        </div>
+                    </div>
+                    <div class="portrait-frame">
+                        <img src="/members-images/joint-secretary-1.jpg" alt="Sri Vankineni Bhanu Prakash">
+                        <div class="portrait-caption">Sri Vankineni Bhanu<br>Prakash<br>Joint Secretary</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============= SECTION 6: JOINT SECRETARY 2 ============= -->
+        <div class="section-block">
+            <div class="section-header-strip teal">
+                Joint Secretary
+            </div>
+            <div class="content-wrapper">
+                <div class="grid-2-col">
+                    <div class="portrait-frame">
+                        <img src="/members-images/joint-secretary-2.jpg" alt="Sri Vallabhaneni Sree Krishna">
+                        <div class="portrait-caption">Sri Vallabhaneni Sree<br>Krishna<br>Joint Secretary</div>
+                    </div>
+                    <div>
+                        <h2 class="member-name">Sri Vallabhaneni Sree Krishna</h2>
+                        <p class="member-role">Joint Secretary</p>
+                        
+                        <div class="member-description">
+                            <p><strong>Sri Vallabhaneni Sree Krishna</strong> serves as Joint Secretary of Sir C.R. Reddy Educational Institutions, bringing dedicated focus to the administrative functions that support the institution's operational excellence. In this role, he works collaboratively with the Secretary and other administrative officers to ensure the efficient functioning of the institution.</p>
+
+                            <p>Sri Sree Krishna brings substantial experience in administrative coordination and organizational management. His contributions are essential to maintaining the administrative infrastructure that enables the institution to pursue its academic mission effectively.</p>
+
+                            <p>As Joint Secretary, his responsibilities encompass coordination of administrative affairs, assistance in record maintenance, and support for the implementation of institutional policies. He plays an active role in facilitating communication between the administrative office and various institutional departments.</p>
+
+                            <p>Sri Sree Krishna is involved in administrative planning and the development of procedures that enhance institutional efficiency. He contributes to efforts aimed at improving administrative systems and ensuring compliance with institutional regulations and statutory requirements.</p>
+
+                            <p>His commitment to administrative professionalism and institutional governance reflects the broader institutional commitment to maintaining high standards of organizational management. Sri Vallabhaneni Sree Krishna's dedication supports the institution's capacity to function effectively while advancing its core educational mission.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============= SECTION 7: TREASURER ============= -->
+        <div class="section-block">
+            <div class="section-header-strip">
+                Treasurer
+            </div>
+            <div class="content-wrapper">
+                <div class="grid-2-col reverse">
+                    <div>
+                        <h2 class="member-name">Sri B.B.V.V Prasada Rao</h2>
+                        <p class="member-role">Treasurer</p>
+                        
+                        <div class="member-description">
+                            <p><strong>Sri B.B.V.V Prasada Rao</strong> serves as Treasurer of Sir C.R. Reddy Educational Institutions, holding a pivotal position in the financial management and fiscal stewardship of the organization. As Treasurer, his role is critical to ensuring the responsible management of institutional funds and the implementation of sound financial policies.</p>
+
+                            <p>Sri Prasada Rao brings extensive experience in financial management and institutional accounting. His expertise is essential to maintaining the financial integrity of the institution and ensuring the optimal utilization of resources in furtherance of the institution's educational mission.</p>
+
+                            <p>As Treasurer, he is responsible for managing institutional finances, overseeing budgeting processes, and ensuring compliance with financial regulations and audit requirements. Sri Prasada Rao plays a crucial role in financial planning and the allocation of resources across various institutional departments and programs.</p>
+
+                            <p>His responsibilities include the maintenance of financial records, coordination with auditing agencies, and the preparation of financial reports that reflect the institution's fiscal position. Sri Prasada Rao works closely with institutional leadership to develop sound financial strategies that support long-term institutional sustainability and growth.</p>
+
+                            <p>Sri Prasada Rao's commitment to financial transparency and fiscal responsibility is instrumental in maintaining stakeholder confidence in the institution's financial management. His stewardship ensures that institutional resources are utilized efficiently and in accordance with the institution's charitable and educational objectives, thereby upholding the trust placed in the institution by donors, students, and the broader community.</p>
+                        </div>
+                    </div>
+                    <div class="portrait-frame">
+                        <img src="/members-images/treasurer.jpg" alt="Sri B.B.V.V Prasada Rao">
+                        <div class="portrait-caption">Sri B.B.V.V Prasada Rao<br>Treasurer</div>
+                    </div>
+                </div>
             </div>
         </div>
 
     </div>
 
-    <div class="management-grid">
+    <!-- FOOTER CONTAINER - Auto-loaded from components -->
+    <div id="footer-container"></div>
 
-        <div class="member-card">
-            <div class="member-photo">
-                <img src="/members-images/secretary.jpg" alt="Dr. Maganti Bhuvana Surendra Venkata Vara Prasada Rao">
-            </div>
-            <div class="member-info">
-                <h3>Dr. M.B.S.V.V Prasad</h3>
-                <p class="role">Secretary</p>
-            </div>
-        </div>
-
-        <div class="member-card">
-            <div class="member-photo">
-                <img src="/members-images/joint-secretary-1.jpg" alt="Sri Vankineni Bhanu Prakash">
-            </div>
-            <div class="member-info">
-                <h3>Sri Vankineni Bhanu Prakash</h3>
-                <p class="role">Joint Secretary</p>
-            </div>
-        </div>
-
-        <div class="member-card">
-            <div class="member-photo">
-                <img src="/members-images/joint-secretary-2.jpg" alt="Sri Vallabhaneni Sree Krishna">
-            </div>
-            <div class="member-info">
-                <h3>Sri Vallabhaneni Sree Krishna</h3>
-                <p class="role">Joint Secretary</p>
-            </div>
-        </div>
-
-        <div class="member-card">
-            <div class="member-photo">
-                <img src="/members-images/treasurer.jpg" alt="Sri B.B.V.V Prasada Rao">
-            </div>
-            <div class="member-info">
-                <h3>Sri B.B.V.V Prasada Rao</h3>
-                <p class="role">Treasurer</p>
-            </div>
-        </div>
-
-    </div>
-</div>
-</main>
-
-<!-- Footer loads here -->
-<div id="footer-container"></div>
-
-<!-- Load components -->
-<script src="js/load-components.js"></script>
-
+    <!-- ============= JAVASCRIPT ============= -->
+    <script src="js/load-components.js"></script>
 </body>
 </html>
