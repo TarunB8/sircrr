@@ -328,6 +328,39 @@
         animation: dropdownSlideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* SCROLLABLE DROPDOWN FOR OUR INSTITUTIONS */
+    .nav-item:nth-child(4) .dropdown-menu {
+        max-height: 400px;
+        overflow-y: auto;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    /* Custom scrollbar styling */
+    .nav-item:nth-child(4) .dropdown-menu::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .nav-item:nth-child(4) .dropdown-menu::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .nav-item:nth-child(4) .dropdown-menu::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #d4a574, #c9955e);
+        border-radius: 10px;
+    }
+
+    .nav-item:nth-child(4) .dropdown-menu::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #c9955e, #b8854a);
+    }
+
+    /* Firefox scrollbar */
+    .nav-item:nth-child(4) .dropdown-menu {
+        scrollbar-color: #d4a574 #f1f1f1;
+        scrollbar-width: thin;
+    }
+
     @keyframes dropdownSlideDown {
         from {
             opacity: 0;
@@ -354,6 +387,7 @@
         transition: all 0.3s ease;
         font-weight: 500;
         position: relative;
+        white-space: nowrap;
     }
 
     .dropdown-menu a:before {
@@ -502,6 +536,10 @@
             margin: 0;
             border-radius: 0;
             animation: none;
+            max-height: none;
+            overflow: visible;
+            padding-top: 0;
+            padding-bottom: 0;
         }
 
         .nav-item.active .dropdown-menu {
@@ -514,6 +552,7 @@
             font-size: 12px;
             border-left: none;
             border-left: 3px solid transparent;
+            white-space: normal;
         }
 
         .dropdown-menu a:hover {
