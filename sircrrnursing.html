@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sir C Ramalinga Reddy Polytechnic</title>
+
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #d4a574;
+            --light-bg: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-muted: #666;
+            --border-light: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            display: flex;
+            gap: 30px;
+        }
+        .college-name {
+    text-align: center;
+    margin: 25px auto 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    width: fit-content;
+}
+
+.college-name h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 1.2px;
+}
+
+        .left {
+            width: 40%;
+        }
+
+        .left-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .left-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-box {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .image-box:hover img {
+            transform: scale(1.08);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-dark);
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 2;
+        }
+
+        .blink-link {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .blink-link a {
+            color: var(--secondary);
+            text-decoration: none;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .right {
+            width: 60%;
+        }
+
+        .photo-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-card {
+            width: 50%;
+            background: var(--light-bg);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .profile-img {
+            height: 260px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .profile-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .profile-card h3 {
+            padding: 15px;
+            color: var(--secondary);
+        }
+
+        .about-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left, .right {
+                width: 100%;
+            }
+
+            .photo-row {
+                flex-direction: column;
+            }
+
+            .profile-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="header-container"></div>
+
+<main>
+    <div class="college-name">
+    <h2>Sir C.R. Reddy Nursing College</h2>
+</div>
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+
+        <div class="left-card">
+            <div class="image-box">
+                <img src="nursingcollege.jpg" alt="Sir C.R. Reddy Nursing College">
+            </div>
+        </div>
+
+        <div class="left-card">
+            <h2>College Vision</h2>
+            <p>
+                To prepare nurses who will work in hospitals and communities with dedication,
+                devotion, compassion and kindness.
+            </p>
+        </div>
+
+        <div class="left-card">
+            <h2>College Mission</h2>
+            <p>
+                To provide the finest environment to facilitate the practice of nursing in a
+                dynamic setting with excellent nursing education, world-class facilities and
+                a strong spirit of service to the community.
+            </p>
+        </div>
+
+        <div class="blink-link">
+            For more information visit:
+            <a href="https://sircrreddycollegeofnursing.org/" target="_blank">
+                Official Website
+            </a>
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+        <div class="photo-row">
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="correspondents-images/crr_nursing_correspondent.png" alt="Correspondent">
+                </div>
+                <h2>Sri Paladugu Srirangam</h2>
+                <h3>Correspondent</h3>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="principals-images/crr_nursing_principal.png" alt="Principal">
+                </div>
+                <h2>Smt. V. Aruna Kumari</h2>
+                <h3>Principal</h3>
+            </div>
+        </div>
+
+        <!-- ABOUT COLLEGE CONTENT REPLACED -->
+        <div class="about-card">
+            <h2>About College</h2>
+            <p>
+                Sir C R Reddy College of Nursing offers an excellent opportunity to become
+                a professional nurse. The college aims at turning out students who meet
+                global standards of nursing education.
+            </p>
+
+            <br>
+
+            <h2>College Features</h2>
+            <ul>
+                <li>Sir C R Reddy College of Nursing is attached with District Government Hospital, Eluru, Gajjalavari Cheruvu UHC, Vatluru PHC and private hospitals.</li>
+                <li>Well experienced and dedicated faculty.</li>
+                <li>Excellent infrastructure including lecture halls with LCD projectors and sound systems, laboratories, digital library, auditorium and examination hall.</li>
+                <li>Facilities for indoor and outdoor games under the guidance of lady physical director and trainers.</li>
+                <li>External classes conducted by medical college faculty.</li>
+                <li>Overall development of students through teacher guidance, counseling and mentoring sessions.</li>
+            </ul>
+
+            <br>
+
+          
+            <h2>Purpose</h2>
+            <p>
+                The aim of the undergraduate program is to prepare knowledgeable and competent
+                nurses and midwives with critical thinking skills who are caring, motivated,
+                assertive and disciplined, capable of responding to the changing needs of the
+                profession, healthcare delivery system and society.
+            </p>
+
+            <br>
+
+            <h2>Course Objectives</h2>
+            <ol>
+                <li>Utilize critical thinking to synthesize knowledge from physical, biological, behavioural sciences and humanities in professional nursing and midwifery practice.</li>
+                <li>Practice nursing and midwifery competently and safely in diverse settings using caring and therapeutic interventions.</li>
+                <li>Apply leadership, autonomy and management concepts to enhance quality and safety in healthcare.</li>
+                <li>Practice independently and collaboratively with health professionals using modern skills and technologies.</li>
+                <li>Integrate research findings and nursing theory into evidence-based practice.</li>
+                <li>Participate in professional advancement for the betterment of global healthcare.</li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+</main>
+
+<div id="footer-container"></div>
+
+<script src="js/load-components.js"></script>
+
+</body>
+</html>

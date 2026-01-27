@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sir C Ramalinga Reddy Polytechnic</title>
+
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #d4a574;
+            --light-bg: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-muted: #666;
+            --border-light: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            display: flex;
+            gap: 30px;
+        }
+        .college-name {
+    text-align: center;
+    margin: 25px auto 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    width: fit-content;
+}
+
+.college-name h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 1.2px;
+}
+
+        /* LEFT SECTION */
+        .left {
+            width: 40%;
+        }
+
+        .left-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .left-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-box {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .image-box:hover img {
+            transform: scale(1.08);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-dark);
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 2;
+        }
+
+        /* BLINKING LINK */
+        .blink-link {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .blink-link a {
+            color: var(--secondary);
+            text-decoration: none;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* RIGHT SECTION */
+        .right {
+            width: 60%;
+        }
+
+        .photo-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-card {
+            width: 50%;
+            background: var(--light-bg);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* IMAGE FIX - NO CUTTING */
+        .profile-img {
+            height: 260px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .profile-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .profile-card h3 {
+            padding: 15px;
+            color: var(--secondary);
+        }
+
+        .about-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left, .right {
+                width: 100%;
+            }
+
+            .photo-row {
+                flex-direction: column;
+            }
+
+            .profile-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="header-container"></div>
+
+<main>
+    <div class="college-name">
+    <h2>Sir C.R. Reddy Junior Women’s College</h2>
+</div>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+
+        <div class="left-card">
+            <div class="image-box">
+                <img src="womensjuniorcollege.jpg" alt="Sir C.R. Reddy Junior Women’s College">
+            </div>
+        </div>
+
+        <div class="left-card">
+            <h2>College Vision</h2>
+            <p>
+                “Ensuring Quality in Education by providing distinct environment of academic excellence with social commitment and Inculcation of values in young and aspiring minds”
+            </p>
+        </div>
+
+        <div class="left-card">
+            <h2>College Mission</h2>
+            <p>
+                   We are committed to:
+
+To promote academic excellence by providing a conducive ambience and infrastructure to develop application oriented courses, with necessary inputs and values with a view to shape the learners for all round development.
+To cultivate knowledge, skills, value and confidence in the students to grow, thrive and prosper.
+To promote academic exchange and strengthen academic- industry interfacing exploring the technology available to develop self- reliant individual by involving them in academic projects.
+To instigate the spirit of enquiry, integrity, leadership and deep sense of social justice among students to become socially responsible.
+To provide life skills for a successful career, and combat the competition on the society.
+            </p>
+        </div>
+
+        <!-- SEPARATE SPACE BELOW MISSION -->
+        <div class="blink-link">
+            For more information visit:
+            <a href="https://www.sircrrwomen.ac.in/" target="_blank">
+                Official Website
+            </a>
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+        <div class="photo-row">
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="correspondents-images/crr_womens_degree_correspondent.png" alt="Correspondent">
+                </div>
+                <h2>Sri Kilaru Prabhakar Rao</h2>
+                <h3>Correspondent</h3>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="principals-images/crr_women_inter_principal.png" alt="Principal">
+                </div>
+                <h2>Smt. V. Rajya Lakshmi</h2>
+                <h3>Principal</h3>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h2>About Sir C R Reddy College for Women</h2>
+
+            <p>
+                Eluru, the district headquarters of West Godavari District, is known for its
+                historical background and as a centre for educational institutions. Two
+                decades ago, opportunities for women to pursue higher education beyond SSC
+                were far from reality.
+            </p>
+
+            <br>
+
+            <p>
+                The management of the parent institution, Sir C R Reddy College, which has
+                been in existence for the last six decades, felt a dire need for a college
+                exclusively for women. The inception of Sir C R Reddy College for Women
+                opened wide the opportunities for girl students in and around Eluru.
+            </p>
+
+            <br>
+
+            <p>
+                Responding to the changing needs of the present day, courses and programs
+                were expanded and reorganized to prepare students to face modern societal
+                challenges with confidence.
+            </p>
+
+            <br>
+
+            <h2>Infrastructure & Facilities</h2>
+            <ul>
+                <li>20,155 Books, 22 Periodicals, 700 CD-ROMs</li>
+                <li>Fully Equipped Laboratories</li>
+                <li>250 Computers with Internet Facility</li>
+                <li>On-campus Hostel</li>
+                <li>Qualified Teaching & Technical Staff</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+</main>
+
+<div id="footer-container"></div>
+
+<script src="js/load-components.js"></script>
+
+</body>
+</html>

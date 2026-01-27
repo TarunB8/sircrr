@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sir C Ramalinga Reddy Polytechnic</title>
+
+    <!-- SAME VARIABLES AS HEADER & FOOTER -->
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #d4a574;
+            --light-bg: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-muted: #666;
+            --border-light: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* MAIN LAYOUT */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            display: flex;
+            gap: 30px;
+        }
+        .college-name {
+    text-align: center;
+    margin: 25px auto 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    width: fit-content;
+}
+
+.college-name h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 1.2px;
+}
+
+        /* LEFT SECTION */
+        .left {
+            width: 40%;
+        }
+
+        .left-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .left-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* IMAGE FIX */
+        .image-box {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .image-box:hover img {
+            transform: scale(1.08);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-dark);
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 2;
+        }
+
+        /* BLINKING LINK (OUTSIDE MISSION BOX) */
+        .blink-link {
+            margin: 10px 0 25px 5px;
+            font-weight: 600;
+        }
+
+        .blink-link a {
+            color: var(--secondary);
+            text-decoration: none;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* RIGHT SECTION */
+        .right {
+            width: 60%;
+        }
+
+        .photo-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-card {
+            width: 50%;
+            background: var(--light-bg);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* PHOTO FIT FIX */
+        .profile-img {
+            height: 260px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .profile-card h3 {
+            padding: 15px;
+            color: var(--secondary);
+        }
+
+        .about-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left, .right {
+                width: 100%;
+            }
+
+            .photo-row {
+                flex-direction: column;
+            }
+
+            .profile-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header-container"></div>
+
+<!-- MAIN CONTENT -->
+<main>
+
+    <div class="college-name">
+    <h2>Sir C.R. Reddy Polytechnic</h2>
+</div>
+    <div class="container">
+
+        <!-- LEFT SIDE -->
+        <div class="left">
+
+            <div class="left-card">
+                <div class="image-box">
+                    <img src="polytechniccollege.jpg" alt="Sir C.R. Reddy Polytechnic">
+                </div>
+            </div>
+
+            <div class="left-card">
+                <h2>College Vision</h2>
+                <p>
+                    To provide value-based technical education with ethical standards,
+                    fostering innovation, trust, and lifelong learning while serving society
+                    with honesty and commitment.
+                </p>
+            </div>
+
+            <div class="left-card">
+                <h2>College Mission</h2>
+                <p>
+                    To deliver quality Polytechnic education through experienced faculty,
+                    modern infrastructure, and a student-centric approach that prepares
+                    learners for professional excellence and societal responsibility.
+                </p>
+            </div>
+
+            <!-- NOW CORRECTLY OUTSIDE MISSION BOX -->
+            <div class="blink-link">
+                For more information visit:
+                <a href="https://www.sircrreddypolytechnic.ac.in" target="_blank">
+                    Official Website
+                </a>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="right">
+
+            <div class="photo-row">
+                <div class="profile-card">
+                    <div class="profile-img">
+                        <img src="correspondents-images/crr_poly_correspondent.png" alt="Correspondent">
+                    </div>
+                    <h2>Sri Vempalli kaliki Satyanarayana (TATAJI)</h2>
+                    <h3>Correspondent</h3>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-img">
+                        <img src="principals-images/crr_poly_principal.png" alt="Principal">
+                    </div>
+                    <h2>Sri Ch. Satish Babu</h2>
+                    <h3>Principal</h3>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h2>About Sir C Ramalinga Reddy Polytechnic</h2>
+                <p>
+                    Sir C Ramalinga Reddy Polytechnic is the first private Polytechnic College
+                    in Andhra Pradesh sanctioned and recognized by AICTE and permanently
+                    affiliated to SBTET since inception. Established in 1980, the institution
+                    has four decades of excellence in delivering quality technical education.
+                </p>
+                <br>
+                <p>
+                    Located near Vatluru Flyover, Eluru, on the Chennai–Howrah highway and
+                    railway route, the college is easily accessible from all parts of the
+                    country. Spread across 11.19 acres, the green and serene campus provides
+                    a stimulating environment for students and staff alike.
+                </p>
+
+                <br>
+                <h2>Our Legacy</h2>
+                <ul>
+                    <li>Established in 1999</li>
+                    <li>AICTE Approved Institution</li>
+                    <li>Affiliated to SBTET, Andhra Pradesh</li>
+                    <li>Counselling Code: CRRE</li>
+                    <li>40+ Years of Excellence</li>
+                </ul>
+
+                <br>
+                <h2>Our Achievements</h2>
+                <ul>
+                    <li>2000+ Successful Alumni</li>
+                    <li>95% Placement Record</li>
+                    <li>State-of-the-art Infrastructure</li>
+                    <li>Industry Partnerships</li>
+                    <li>Research & Innovation Hub</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<div id="footer-container"></div>
+
+<!-- LOAD HEADER & FOOTER -->
+<script src="js/load-components.js"></script>
+
+</body>
+</html>

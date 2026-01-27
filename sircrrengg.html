@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sir C Ramalinga Reddy Polytechnic</title>
+
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #d4a574;
+            --light-bg: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-muted: #666;
+            --border-light: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            display: flex;
+            gap: 30px;
+        }
+        .college-name {
+    text-align: center;
+    margin: 25px auto 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    width: fit-content;
+}
+
+.college-name h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 1.2px;
+}
+
+        .left {
+            width: 40%;
+        }
+
+        .left-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .left-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-box {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .image-box:hover img {
+            transform: scale(1.08);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-dark);
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 2;
+        }
+
+        .blink-link {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .blink-link a {
+            color: var(--secondary);
+            text-decoration: none;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .right {
+            width: 60%;
+        }
+
+        .photo-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-card {
+            width: 50%;
+            background: var(--light-bg);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .profile-img {
+            height: 260px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .profile-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .profile-card h3 {
+            padding: 15px;
+            color: var(--secondary);
+        }
+
+        .about-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left, .right {
+                width: 100%;
+            }
+
+            .photo-row {
+                flex-direction: column;
+            }
+
+            .profile-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="header-container"></div>
+
+<main>
+    <div class="college-name">
+    <h2>Sir C R REDDY COLLEGE OF ENGINEERING (AUTONOMOUS)</h2>
+</div>
+<div class="container">
+    
+    <!-- LEFT SIDE -->
+    <div class="left">
+
+        <div class="left-card">
+            <div class="image-box">
+                <img src="crrenggcollege.jpg" alt="Sir C R REDDY COLLEGE OF ENGINEERING (AUTONOMOUS)">
+            </div>
+        </div>
+
+        <div class="left-card">
+            <h2>College Vision</h2>
+            <p>
+                To emerge as a premier institution in the field of technical education and research in the state and as a home for holistic development of the students and contribute to the advancement of society and the region.
+            </p>
+        </div>
+
+        <div class="left-card">
+            <h2>College Mission</h2>
+            <p>
+                To provide high quality technical education through a creative balance of academic and industry oriented learning; to create an inspiring environment of scholarship and research; to instill high levels of academic and professional discipline; and to establish standards that inculcate ethical and moral values that contribute to growth in career and development of society in general.
+            </p>
+        </div>
+
+        <div class="blink-link">
+            For more information visit:
+            <a href="https://www.sircrrengg.ac.in" target="_blank">
+                Official Website
+            </a>
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+        <div class="photo-row">
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="correspondents-images/crr_engineering_correspondent.png" alt="Correspondent">
+                </div>
+                <h2>Sri Jasti Mallikharjunudu (Malli Babu)</h2>
+                <h3>Correspondent</h3>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="principals-images/crr_engg_principal.png" alt="Principal">
+                </div>
+                <h2>Dr. K. Venkateswara Rao</h2>
+                <h3>Principal</h3>
+            </div>
+        </div>
+
+        <!-- ABOUT US CONTENT REPLACED ONLY -->
+        <div class="about-card">
+            <h2>About Sir C.R. Reddy College of Engineering (A)</h2>
+
+            <p>
+                Sir C.R. Reddy College of Engineering (A) is the first Engineering College in
+                Andhra Pradesh sanctioned and recognized by the All India Council for Technical
+                Education (AICTE). The college is permanently affiliated to JNTUK from the
+                academic year 2017–18.
+            </p>
+
+            <br>
+
+            <p>
+                Since its inception in 1989, Sir C.R. Reddy College of Engineering (A) has been
+                a premier institute for quality engineering education in Andhra Pradesh under
+                the stewardship of its broad-minded and magnanimous management. Over the last
+                two and a half decades, the institute has consistently fulfilled its motto of
+                <strong>“QUALITY SERVICE & VALUE BASED EDUCATION”</strong>.
+            </p>
+
+            <br>
+
+            <p>
+                Adhering to its core values, the institute gives top priority to ethical values,
+                high standards, and a strong commitment to value-based education. The institution
+                believes in honesty, sincerity, building trust, and maintaining long-lasting
+                relationships with society. The faculty team is highly qualified, motivated,
+                and supported by a friendly yet efficient work culture.
+            </p>
+
+            <br>
+
+            <p>
+                The college is situated near Vatluru Railway Gate in Eluru, the headquarters of
+                West Godavari District. Surrounded by lush paddy fields, the campus lies on the
+                Chennai–Howrah highway and railway route, making it easily accessible from all
+                parts of the country by road and rail.
+            </p>
+
+            <br>
+
+            <p>
+                The institution is located on its own sprawling campus covering 30.48 acres.
+                The vast green campus, with its impressive infrastructure and multiple academic
+                departments, provides a stimulating and inspiring environment for students and
+                staff alike.
+            </p>
+
+            <br>
+
+            <p>
+                The Vatluru campus brings together students from diverse backgrounds who pursue
+                BE/B.Tech, M.Tech, and MBA programs under one umbrella, fostering academic
+                excellence and holistic development.
+            </p>
+
+            <br>
+
+            <h2>OBJECTIVES</h2>
+
+            <p>To build a productive and mutually beneficial partnership with all stakeholders including students, faculty, management, parents, employers, and alumni and to transform students in to competent engineering professionals with good ethical values and societal responsibilities, the college has identified the following objectives in tune with the Vision and Mission of the institute:
+
+ 
+
+To provide students with a solid foundation in the principles of engineering and technology.
+
+To Improve the analytical and problem-solving skills of students.
+
+To provide a solid foundation for good communication skills.
+
+To instil discipline and hard work necessary for academic achievement in students.
+
+To inculcate skills necessary for team work and resources management by taking up multi-disciplinary projects, participation and organization of co-curricular activities.
+
+To make students aware of statutory and international standards for design so as to face challenges in the industry.
+
+To provide an environment that will help students grow into responsible citizens with good moral and ethical values.
+
+To improve continuously the critical areas of faculty education and training for effective content delivery, academic and industrial research.
+
+To develop rapport and partnership with industries and professional bodies for awareness on on-going technological developments.
+
+To build industrial consultancy work and possible solutions to engineering challenges faced by the society wherever possible.</p>
+
+        </div>
+
+    </div>
+</div>
+</main>
+
+<div id="footer-container"></div>
+
+<script src="js/load-components.js"></script>
+
+</body>
+</html>
