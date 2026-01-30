@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Values - Sir CR Reddy Educational Institutions</title>
+
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #d4a574;
+            --light-bg: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-muted: #666;
+            --border-light: #e0e0e0;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        .core-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .core-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .core-header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .core-header p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 850px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .core-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .core-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 35px 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        .core-card:nth-child(1) { animation-delay: 0.1s; }
+        .core-card:nth-child(2) { animation-delay: 0.2s; }
+        .core-card:nth-child(3) { animation-delay: 0.3s; }
+        .core-card:nth-child(4) { animation-delay: 0.4s; }
+        .core-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .core-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            transition: width 0.4s ease;
+        }
+
+        .core-card:hover::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+
+        .core-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--accent);
+        }
+
+        .core-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(44, 82, 130, 0.2);
+        }
+
+        .core-card:hover .core-icon-wrapper {
+            transform: rotateY(180deg) scale(1.1);
+            box-shadow: 0 8px 25px rgba(44, 82, 130, 0.35);
+        }
+
+        .core-icon {
+            width: 36px;
+            height: 36px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .core-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .core-card p {
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 1.02rem;
+        }
+
+        .core-note {
+            margin-top: 60px;
+            padding: 35px 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 16px;
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(26, 54, 93, 0.25);
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .core-note p {
+            font-size: 1.1rem;
+            max-width: 950px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .core-container {
+                padding: 40px 15px;
+            }
+
+            .core-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .core-header p {
+                font-size: 1.05rem;
+            }
+
+            .core-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .core-card {
+                padding: 28px 22px;
+            }
+
+            .core-note {
+                padding: 28px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============= HEADER CONTAINER ============= -->
+    <div id="header-container"></div>
+
+    <!-- ============= MAIN CONTENT ============= -->
+    <main>
+        <div class="core-container">
+
+            <div class="core-header">
+                <h1>Our Core Values</h1>
+                <p>
+                    The foundation of Sir C. R. Reddy Educational Institutions is built on strong ethical principles, 
+                    academic excellence, and social commitment. These core values guide our vision, culture, 
+                    and decision-making processes.
+                </p>
+            </div>
+
+            <div class="core-grid">
+
+                <div class="core-card">
+                    <div class="core-icon-wrapper">
+                        <svg class="core-icon" viewBox="0 0 24 24">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Excellence in Education</h3>
+                    <p>
+                        We strive for the highest academic standards in teaching, learning, and overall performance, 
+                        ensuring holistic development and educational excellence.
+                    </p>
+                </div>
+
+                <div class="core-card">
+                    <div class="core-icon-wrapper">
+                        <svg class="core-icon" viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="M9 12l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>
+                        We uphold truthfulness, fairness, and transparency in all institutional activities, 
+                        fostering trust, honesty, and accountability at every level.
+                    </p>
+                </div>
+
+                <div class="core-card">
+                    <div class="core-icon-wrapper">
+                        <svg class="core-icon" viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>Teamwork</h3>
+                    <p>
+                        We encourage collaboration and active participation among students, faculty, staff, 
+                        and stakeholders, creating a unified approach to institutional growth.
+                    </p>
+                </div>
+
+                <div class="core-card">
+                    <div class="core-icon-wrapper">
+                        <svg class="core-icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                            <path d="M2 12h20"></path>
+                        </svg>
+                    </div>
+                    <h3>Social Responsibility</h3>
+                    <p>
+                        We inculcate values that promote responsible citizenship and contribute meaningfully to 
+                        sustainable social and national development.
+                    </p>
+                </div>
+
+                <div class="core-card">
+                    <div class="core-icon-wrapper">
+                        <svg class="core-icon" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                            <path d="M12 14c-3.5 0-6.5 1.5-6.5 3.5S8.5 21 12 21s6.5-1.5 6.5-3.5S15.5 14 12 14z" opacity="0.5"></path>
+                        </svg>
+                    </div>
+                    <h3>Diversity &amp; Equal Opportunity</h3>
+                    <p>
+                        We provide an inclusive environment that respects diversity of thought, culture, ideology, 
+                        and perspectives, ensuring equal opportunities for all.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="core-note">
+                <p>
+                    These core values shape the identity of Sir C. R. Reddy Educational Institutions and 
+                    inspire us to deliver excellence in education while nurturing responsible and ethical citizens 
+                    committed to making a positive impact on society.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ============= FOOTER CONTAINER ============= -->
+    <div id="footer-container"></div>
+
+    <!-- ============= LOAD COMPONENTS SCRIPT ============= -->
+    <script src="js/load-components.js"></script>
+
+</body>
+</html>

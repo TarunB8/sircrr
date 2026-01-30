@@ -169,7 +169,21 @@
         .timeline-text {
             color: var(--text-dark);
         }
+                .blink-link {
+            margin-top: 10px;
+            font-weight: 600;
+        }
 
+        .blink-link a {
+            color: var(--secondary);
+            text-decoration: none;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
         @media (max-width: 900px) {
             .container {
                 flex-direction: column;
@@ -211,26 +225,36 @@
         </div>
 
         <div class="left-card">
-            <h2>Overview</h2>
+            <h2>College Vision</h2>
             <p>
-                Sir C R Reddy College, established in 1945, is named after Sir C R Reddy, 
-                a distinguished educationalist and the founding Vice-Chancellor of Andhra University. 
-                The college has grown into a premier institution in Andhra Pradesh, offering diverse 
-                undergraduate and postgraduate programs under the Sir C R Reddy Educational Institutions.
+"Ensuring Quality in Education by providing distinct environment of 
+academic excellence with Social commitment and inculcation of values in young and aspiring minds".
             </p>
         </div>
 
         <div class="left-card">
-            <h2>Affiliation & Recognition</h2>
+            <h2>College Mission</h2>
             <p>
-                • Affiliated to Adikavi Nannaya University since 2015 (earlier Andhra University).<br>
-                • Recognized by UGC under 2(f) & 12(B) in 1969.<br>
-                • Autonomous status granted in 1987–88 and extended up to 2031–32.
+                1.      To develop application-oriented courses, with necessary inputs and values with a view to shape the learners for all-round development.<br>
+
+2.      To cultivate knowledge skills, values, and Confidence in the students to grow, thrive and prosper.<br>
+
+3.      To promote academic exchange and strengthen academic industry interfacing exploring the technology available.<br>
+
+4.      To instigate the spirit of enquiry, integrity, leadership and deep sense of social justice among students.<br>
+
+
+5.      To provide life skills for a successful career and combat the competition in the society.
             </p>
         </div>
-
+        <div class="blink-link">
+            For more information visit:
+            <a href="https://sircrreddycollege.ac.in" target="Sir C R Reddy College">
+                Official Website
+            </a>
+        </div>
     </div>
-
+    
     <!-- RIGHT SIDE -->
     <div class="right">
 

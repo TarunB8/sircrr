@@ -1,40 +1,48 @@
-<!-- ============= FOOTER.HTML ============= -->
-<!-- Include this file in your pages using JavaScript fetch or template engines -->
-<!-- See implementation guide below -->
-
+<!-- ============= FOOTER ============= -->
 <style>
-    /* ============= ROOT VARIABLES (Same as Header) ============= */
     :root {
         --primary: #1a365d;
         --secondary: #2c5282;
         --accent: #d4a574;
-        --light-bg: #f8f9fa;
-        --text-dark: #1a1a1a;
-        --text-muted: #666;
-        --border-light: #e0e0e0;
-        --success: #27ae60;
-        --warning: #f39c12;
     }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: var(--text-dark);
-        background-color: #fff;
-    }
-
-    /* ============= FOOTER ============= */
     footer {
-        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        background: linear-gradient(135deg, #2c5282 0%, #1a365d 50%, #0f2847 100%);
         color: white;
-        padding: 50px 20px 20px;
-        margin-top: 50px;
+        padding: 60px 20px 25px;
+        margin-top: 80px;
+        box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.25);
+        position: relative;
+        overflow: hidden;
+        animation: footerSlideUp 0.6s ease-out;
+    }
+
+    @keyframes footerSlideUp {
+        from {
+            transform: translateY(60px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #3498db, #9b59b6, #e74c3c, #f39c12, #3498db);
+        background-size: 200% 100%;
+        animation: gradientShift 3s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
     }
 
     .footer-container {
@@ -44,137 +52,307 @@
 
     .footer-content {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 35px;
-        margin-bottom: 30px;
+        grid-template-columns: 2fr 1.2fr 1.5fr 1.3fr;
+        gap: 45px;
+        margin-bottom: 40px;
+    }
+
+    .footer-section {
+        position: relative;
+        padding: 0;
+        animation: footerSectionFade 0.8s ease-out backwards;
+    }
+
+    .footer-section:nth-child(1) { animation-delay: 0.1s; }
+    .footer-section:nth-child(2) { animation-delay: 0.2s; }
+    .footer-section:nth-child(3) { animation-delay: 0.3s; }
+    .footer-section:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes footerSectionFade {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .footer-section h3 {
-        font-size: 14px;
+        font-size: 15px;
         color: var(--accent);
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 1px;
+        position: relative;
+        display: inline-block;
     }
 
-    .footer-section p,
-    .footer-section li {
-        font-size: 13px;
+    .footer-section h3::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), transparent);
+        border-radius: 2px;
+    }
+
+    .footer-section p {
+        font-size: 14px;
         line-height: 1.8;
-        opacity: 0.95;
+        opacity: 0.92;
+        color: rgba(255, 255, 255, 0.95);
     }
 
     .footer-section ul {
         list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
     .footer-section li {
-        margin-bottom: 8px;
+        margin-bottom: 12px;
+        font-size: 14px;
+        line-height: 1.6;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .footer-section li:hover {
+        transform: translateX(5px);
+    }
+
+    .footer-icon {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        opacity: 0.85;
+        margin-top: 2px;
     }
 
     .footer-section a {
-        color: white;
+        color: rgba(255, 255, 255, 0.92);
         text-decoration: none;
-        transition: color 0.3s ease;
+        position: relative;
+        display: inline-block;
+        transition: all 0.3s ease;
     }
 
     .footer-section a:hover {
         color: var(--accent);
+        padding-left: 5px;
     }
 
+    /* Social Media Section */
     .social-links {
         display: flex;
-        gap: 15px;
-        margin-top: 12px;
+        gap: 12px;
+        margin-top: 15px;
+        flex-wrap: wrap;
     }
 
     .social-link {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        text-align: center;
-        line-height: 40px;
-        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
         color: white;
         text-decoration: none;
+        font-size: 18px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .social-link svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+        transition: all 0.4s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .social-link::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--accent), #e8c795);
+        transform: scale(0);
+        border-radius: 10px;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1;
     }
 
     .social-link:hover {
-        background: var(--accent);
-        color: var(--primary);
         transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(212, 165, 116, 0.4);
+        border-color: var(--accent);
     }
 
+    .social-link:hover::before {
+        transform: scale(1);
+    }
+
+    .social-link:hover svg {
+        fill: var(--primary);
+        transform: scale(1.1);
+    }
+
+    .newsletter-text {
+        margin-top: 20px;
+        font-size: 13px;
+        opacity: 0.85;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+    }
+
+    /* Footer Bottom */
     .footer-bottom {
         text-align: center;
-        font-size: 12px;
+        font-size: 13px;
         border-top: 1px solid rgba(255, 255, 255, 0.15);
-        padding-top: 20px;
+        padding-top: 25px;
         opacity: 0.9;
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .footer-bottom a {
+        color: var(--accent);
+        text-decoration: none;
+        position: relative;
+        transition: color 0.3s ease;
+        margin: 0 3px;
+    }
+
+    .footer-bottom a:hover {
+        color: #fff;
+    }
+
+    .footer-bottom a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 0;
+        height: 2px;
+        background: white;
+        transition: width 0.3s ease;
+    }
+
+    .footer-bottom a:hover::after {
+        width: 100%;
+    }
+
+    /* Decorative Elements */
+    footer::after {
+        content: '';
+        position: absolute;
+        top: -30%;
+        right: -15%;
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(212, 165, 116, 0.15), transparent 70%);
+        opacity: 0.6;
+        pointer-events: none;
+        animation: floatGlow 8s ease-in-out infinite;
+    }
+
+    @keyframes floatGlow {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(-30px, 30px) scale(1.1); }
     }
 
     /* ============= RESPONSIVE ============= */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .footer-content {
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            gap: 35px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        footer {
+            padding: 45px 18px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .social-links {
+            justify-content: flex-start;
         }
     }
 
     @media (max-width: 480px) {
         footer {
-            padding: 40px 15px 15px;
+            padding: 35px 15px 18px;
             margin-top: 40px;
         }
 
         .footer-content {
-            grid-template-columns: 1fr;
             gap: 25px;
             margin-bottom: 25px;
         }
 
         .footer-section h3 {
-            font-size: 12px;
-            margin-bottom: 12px;
-            letter-spacing: 0.3px;
+            font-size: 13px;
+            letter-spacing: 0.5px;
         }
 
         .footer-section p,
         .footer-section li {
-            font-size: 12px;
-            line-height: 1.6;
-        }
-
-        .social-links {
-            gap: 10px;
+            font-size: 13px;
         }
 
         .social-link {
-            width: 36px;
-            height: 36px;
-            line-height: 36px;
-            font-size: 14px;
+            width: 38px;
+            height: 38px;
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
         }
 
         .footer-bottom {
-            font-size: 10px;
-            padding-top: 15px;
+            font-size: 11px;
+            padding-top: 20px;
         }
     }
 </style>
 
-<!-- ============= FOOTER CONTENT ============= -->
 <footer>
     <div class="footer-container">
         <div class="footer-content">
+            <!-- About Section -->
             <div class="footer-section">
                 <h3>About Institutions</h3>
                 <p>Sir CR Reddy Educational Institutions is a premier institution dedicated to providing quality education and fostering holistic development of students across multiple educational institutions in Andhra Pradesh.</p>
             </div>
 
+            <!-- Quick Links -->
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
@@ -186,30 +364,81 @@
                 </ul>
             </div>
 
+            <!-- Contact Information -->
             <div class="footer-section">
                 <h3>Contact Information</h3>
                 <ul>
-                    <li>📍 Eluru, Andhra Pradesh, India</li>
-                    <li>📞 +91-XXXXX XXXXX</li>
-                    <li>✉️ info@sircrreddy.edu.in</li>
-                    <li>🌐 www.sircrreddy.edu.in</li>
+                    <li>
+                        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Eluru, Andhra Pradesh, India</span>
+                    </li>
+                    <li>
+                        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>+91-XXXXX XXXXX</span>
+                    </li>
+                    <li>
+                        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>info@sircrreddy.edu.in</span>
+                    </li>
+                    <li>
+                        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span>www.sircrreddy.edu.in</span>
+                    </li>
                 </ul>
             </div>
 
+            <!-- Social Media -->
             <div class="footer-section">
                 <h3>Follow Us</h3>
                 <div class="social-links">
-                    <a href="#" class="social-link" title="Facebook">f</a>
-                    <a href="#" class="social-link" title="Twitter">𝕏</a>
-                    <a href="#" class="social-link" title="Instagram">📷</a>
-                    <a href="#" class="social-link" title="LinkedIn">in</a>
+                    <a href="#" class="social-link" aria-label="Facebook" title="Facebook">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter" title="Twitter">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram" title="Instagram">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn" title="LinkedIn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
                 </div>
-                <p style="margin-top: 15px; font-size: 12px;">Subscribe to our newsletter for updates</p>
+                <p class="newsletter-text">Subscribe to our newsletter for updates</p>
             </div>
         </div>
 
+        <!-- Footer Bottom -->
         <div class="footer-bottom">
-            <p>&copy; 2024 Sir CR Reddy Educational Institutions. All Rights Reserved. | <a href="#" style="color: var(--accent);">Privacy Policy</a> | <a href="#" style="color: var(--accent);">Terms & Conditions</a></p>
+            <p>
+                &copy; 2026 Sir CR Reddy Educational Institutions. All Rights Reserved.
+                | <a href="#">Privacy Policy</a>
+                | <a href="#">Terms &amp; Conditions</a>
+            </p>
         </div>
     </div>
 </footer>

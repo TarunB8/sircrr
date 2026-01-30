@@ -1,5 +1,4 @@
 <!-- ============= PROFESSIONAL HEADER & NAVIGATION ============= -->
-
 <style>
     /* ============= ROOT VARIABLES ============= */
     :root {
@@ -559,6 +558,16 @@
             border-left-color: var(--accent);
             padding-left: 36px;
         }
+
+        /* clickable main link for toggling sub-menu on mobile */
+        .nav-link.toggle-sub {
+            position: relative;
+            padding-right: 40px;
+        }
+
+        .nav-link.toggle-sub::after {
+            /* use existing :after bar for left indication, no arrow needed */
+        }
     }
 
     @media (max-width: 480px) {
@@ -644,27 +653,26 @@
                 <a href="index.html" class="nav-link">HOME</a>
             </li>
             <li class="nav-item">
-                <a href="#about" class="nav-link">ABOUT US</a>
+                <a href="#about" class="nav-link toggle-sub">ABOUT US</a>
                 <div class="dropdown-menu">
                     <a href="#about-society">Institution Vision & Mission</a>
                     <a href="founders.html">About Founders</a>
                     <a href="successionpresidents.html">Succession List of Presidents</a>
                     <a href="successionsecretaries.html">Succession List of Secretaries</a>
-                    <a href="#values">Core Values</a>
+                    <a href="corevalues.html">Core Values</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a href="#admin" class="nav-link">ADMINISTRATION</a>
+                <a href="#admin" class="nav-link toggle-sub">ADMINISTRATION</a>
                 <div class="dropdown-menu">
                     <a href="officebearers.html">Office Bearers</a>
                     <a href="managingcommitee.html">Managing Committee</a>
                     <a href="correspondents.html">Correspondents</a>
-                    <a href="advisor.html">Advisor</a>
                     <a href="principals.html">Principals</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a href="#institutions" class="nav-link">OUR INSTITUTIONS</a>
+                <a href="#institutions" class="nav-link toggle-sub">OUR INSTITUTIONS</a>
                 <div class="dropdown-menu">
                     <a href="sircrreddycollege.html">Sir C.R Reddy College (Autonomous) (1945)</a>
                     <a href="sircrrpgcourses.html">Sir C.R Reddy P.G. Courses (1971)</a>
@@ -679,16 +687,16 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="#student-life" class="nav-link">STUDENT LIFE</a>
+                <a href="#student-life" class="nav-link toggle-sub">STUDENT LIFE</a>
                 <div class="dropdown-menu">
                     <a href="#sports">Sports & Recreation</a>
                     <a href="#hostel">Hostel Facilities</a>
-                    <a href="#scholarships">Scholarships</a>
+                    <a href="scholarships.html">Scholarships</a>
                     <a href="#alumni">Alumni Network</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a href="#placements" class="nav-link">PLACEMENTS</a>
+                <a href="#placements" class="nav-link toggle-sub">PLACEMENTS</a>
                 <div class="dropdown-menu">
                     <a href="#placement-stats">Placement Statistics</a>
                     <a href="#placement-officers">Training & Placement Officers</a>
@@ -697,7 +705,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="#contact" class="nav-link">CONTACT US</a>
+                <a href="#contact" class="nav-link toggle-sub">CONTACT US</a>
                 <div class="dropdown-menu">
                     <a href="#contact-form">Get in Touch</a>
                     <a href="#campus-location">Campus Location</a>
@@ -710,31 +718,31 @@
 
 <script>
     // Mobile menu toggle
-    document.getElementById('menuToggle').addEventListener('click', function() {
-        const navMenu = document.getElementById('navMenu');
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', function () {
         navMenu.classList.toggle('active');
     });
 
-    // Close menu when link is clicked
+    // Close mobile menu when a non-dropdown link is clicked
     document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-            document.getElementById('navMenu').classList.remove('active');
-        });
-    });
+        link.addEventListener('click', function (e) {
+            const parentItem = this.parentElement;
+            const hasDropdown = parentItem.querySelector('.dropdown-menu');
 
-    // Mobile dropdown toggle
-    document.querySelectorAll('.nav-item').forEach(item => {
-        item.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                if (this.querySelector('.dropdown-menu')) {
-                    e.preventDefault();
-                    this.classList.toggle('active');
-                }
+            if (window.innerWidth <= 768 && hasDropdown) {
+                // For mobile: prevent direct jump, toggle sub-menu instead
+                e.preventDefault();
+                parentItem.classList.toggle('active');
+            } else {
+                // Normal behavior: smooth scroll or navigation, close menu
+                navMenu.classList.remove('active');
             }
         });
     });
 
-    // Smooth scroll behavior
+    // Smooth scroll behavior for hash links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -742,6 +750,11 @@
                 e.preventDefault();
                 const element = document.querySelector(href);
                 element.scrollIntoView({ behavior: 'smooth' });
+
+                // Close mobile menu after scroll
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                }
             }
         });
     });
@@ -750,6 +763,25 @@
     document.querySelectorAll('.nav-link').forEach(link => {
         if (link.href === window.location.href) {
             link.style.color = '#d4a574';
+        }
+    });
+
+    // Optional: close open dropdowns when clicking outside on mobile
+    document.addEventListener('click', function (e) {
+        if (window.innerWidth > 768) return;
+
+        const isClickInsideNav = e.target.closest('nav') || e.target.closest('#menuToggle');
+        if (!isClickInsideNav) {
+            navMenu.classList.remove('active');
+            document.querySelectorAll('.nav-item.active').forEach(item => item.classList.remove('active'));
+        }
+    });
+
+    // Handle resize: reset mobile states when going back to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navMenu.classList.remove('active');
+            document.querySelectorAll('.nav-item.active').forEach(item => item.classList.remove('active'));
         }
     });
 </script>

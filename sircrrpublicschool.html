@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sir C R Reddy Public School</title>
+
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #d4a574;
+            --light-bg: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-muted: #666;
+            --border-light: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .college-name {
+            text-align: center;
+            margin: 25px auto 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+            width: fit-content;
+        }
+
+        .college-name h2 {
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 1.2px;
+        }
+
+        .left {
+            width: 40%;
+        }
+
+        .left-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .left-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-box {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .image-box:hover img {
+            transform: scale(1.08);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .blink-link {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .blink-link a {
+            color: var(--secondary);
+            text-decoration: none;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .right {
+            width: 60%;
+        }
+
+        .photo-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-card {
+            width: 50%;
+            background: var(--light-bg);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .profile-img {
+            height: 260px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .profile-card h3 {
+            padding: 15px;
+            color: var(--secondary);
+        }
+
+        .about-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            .left, .right {
+                width: 100%;
+            }
+            .photo-row {
+                flex-direction: column;
+            }
+            .profile-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="header-container"></div>
+
+<main>
+<div class="college-name">
+    <h2>SIR C.R. REDDY PUBLIC SCHOOL, ELURU</h2>
+</div>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+
+        <div class="left-card">
+            <div class="image-box">
+                <img src="/images/public_school.jpg" alt="Sir C R Reddy Public School">
+            </div>
+        </div>
+
+        <div class="left-card">
+            <h2>School Vision</h2>
+            <p>
+                To nurture responsible, confident, and innovative learners with strong moral values,
+                academic excellence, and global competence.
+            </p>
+        </div>
+
+        <div class="left-card">
+            <h2>School Mission</h2>
+            <p>
+                To provide holistic education through innovative teaching methodologies, character building,
+                and experiential learning that prepares students for lifelong success and leadership.
+            </p>
+        </div>
+
+        <div class="blink-link">
+            For more information visit:
+            <a href="https://sircrrschool.ac.in" target="_blank">
+                Official Website
+            </a>
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+        <div class="photo-row">
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="correspondents-images/crr_school_correspondent.png" alt="Correspondent">
+                </div>
+                <h2>Sri V. Raghu Kumar</h2>
+                <h3>Correspondent</h3>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="principals-images/crr_school_principal.png" alt="Principal">
+                </div>
+                <h2>Smt. Sai Kumari Sankar</h2>
+                <h3>Principal</h3>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h2>About Sir C.R. Reddy Public School</h2>
+
+            <p>
+                Sir C.R. Reddy Public School, located on G.N.T. Road, Santhi Nagar, Eluru, Andhra Pradesh,
+                is a premier CBSE affiliated institution (Affiliation No. 130072), dedicated to academic excellence
+                and holistic child development.
+            </p>
+
+            <br>
+
+            <p>
+                Established in 1984, the school is managed by the prestigious Sir C R Reddy Educational Institutions’
+                Governing Body, a name synonymous with quality education in Andhra Pradesh.
+            </p>
+
+            <br>
+
+            <p>
+                The school offers a nurturing learning environment from Nursery to Class XII, empowering students
+                with knowledge, values, and essential 21st-century skills.
+            </p>
+
+            <br>
+
+            <h2>Why Choose Us?</h2>
+
+            <p>
+                • Caring & Qualified Teachers who inspire and support every child.<br>
+                • Flexible & Fun Learning with a balanced academic and activity-based curriculum.<br>
+                • Celebrated Achievements that recognize academic and creative excellence of students.
+            </p>
+
+        </div>
+
+    </div>
+</div>
+</main>
+
+<div id="footer-container"></div>
+
+<script src="js/load-components.js"></script>
+
+</body>
+</html>
