@@ -82,7 +82,7 @@
     font-weight: 500;
     line-height: 48px;
 
-    /* CHANGE SPEED HERE */
+    /* DESKTOP SPEED */
     animation: marqueeScroll 15s linear infinite;
 }
 
@@ -91,14 +91,15 @@
     animation-play-state: paused;
 }
 
-/* SMOOTH CONTINUOUS SCROLL */
+/* CONTINUOUS SMOOTH SCROLL */
 @keyframes marqueeScroll {
-    from {
-        left: 100%;
+
+    0% {
+        transform: translateX(0);
     }
 
-    to {
-        left: -100%;
+    100% {
+        transform: translateX(-220%);
     }
 }
 
@@ -118,8 +119,8 @@
         font-size: 12px;
         line-height: 42px;
 
-        /* MOBILE SPEED */
-        animation-duration: 8s;
+        /* TABLET SPEED */
+        animation-duration: 18s;
     }
 }
 
@@ -145,7 +146,7 @@
         line-height: 38px;
 
         /* MOBILE SPEED */
-        animation-duration: 15s;
+        animation-duration: 22s;
     }
 }
         
