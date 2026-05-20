@@ -258,7 +258,151 @@
             background: linear-gradient(90deg, var(--accent) 0%, var(--secondary) 100%);
             border-radius: 2px;
         }
+/* NOTIFICATIONS SECTION */
+.notifications-section {
+    margin: 20px 0 10px 0;
+    padding-top: 10px;
+}
 
+.notifications-box {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(26, 54, 93, 0.08);
+}
+
+.notifications-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #ffffff;
+    flex-wrap: wrap;
+}
+
+.notifications-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.notifications-date {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.notifications-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+    background: #ffffff;
+}
+
+.notifications-table thead th {
+    background: var(--light-bg);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 15px 18px;
+    text-align: left;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.notifications-table tbody td {
+    padding: 16px 18px;
+    font-size: 14px;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+.notifications-table tbody tr:hover {
+    background: #fcfcfc;
+}
+
+.notify-code {
+    display: inline-block;
+    background: rgba(44, 82, 130, 0.1);
+    color: var(--secondary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .notifications-head {
+        padding: 14px 16px;
+    }
+
+    .notifications-badge {
+        font-size: 11px;
+        padding: 6px 12px;
+    }
+
+    .notifications-date {
+        font-size: 12px;
+    }
+
+    .notifications-table thead th,
+    .notifications-table tbody td {
+        padding: 13px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .notifications-section {
+        margin: 10px 0 5px 0;
+    }
+
+    .notifications-box {
+        border-radius: 8px;
+    }
+
+    .notifications-head {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 14px;
+    }
+
+    .notifications-table {
+        min-width: 560px;
+    }
+
+    .notifications-table thead th,
+    .notifications-table tbody td {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .notify-code {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+}
         /* ============= INSTITUTIONS SLIDER ============= */
         .slider-container {
             background: var(--light-bg);
@@ -1232,7 +1376,36 @@
                 <div class="stat-label">Legacy of Excellence</div>
             </div>
         </div>
+<!-- NOTIFICATIONS SECTION -->
+<section class="section notifications-section" id="notifications">
+    <h2 class="section-title">NOTIFICATIONS</h2>
 
+    <div class="notifications-box">
+        <div class="notifications-head">
+            <span class="notifications-badge">Latest Update</span>
+            <span class="notifications-date">Updated: 02-05-2026</span>
+        </div>
+
+        <div class="table-responsive">
+            <table class="notifications-table">
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">Code</th>
+                        <th style="width: 62%;">Notification</th>
+                        <th style="width: 20%;">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="notify-code">CRRE</span></td>
+                        <td>Sir C. R. Reddy College of Engineering re-opens from 29-06-2026.</td>
+                        <td>29-06-2026</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
         <!-- INSTITUTIONS SECTION WITH CONTINUOUS SCROLLING -->
         <section class="section" id="institutions">
             <h2 class="section-title">OUR INSTITUTIONS</h2>
