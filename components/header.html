@@ -1,4 +1,3 @@
-<!-- ============= PROFESSIONAL HEADER & NAVIGATION ============= -->
 <style>
     /* ============= ROOT VARIABLES ============= */
     :root {
@@ -714,7 +713,6 @@
     }
 </style>
 
-<!-- HEADER -->
 <header>
     <div class="header-content">
         <div class="logo-area">
@@ -729,7 +727,6 @@
     </div>
 </header>
 
-<!-- NAVIGATION -->
 <nav>
     <div class="nav-container">
         <ul class="nav-menu" id="navMenu">
@@ -801,171 +798,101 @@
 </nav>
 
 <script>
-
 /* =========================================================
-   MOBILE NAVIGATION + TOGGLE + DROPDOWN SCRIPT
+   BULLETPROOF EVENT DELEGATION SCRIPT FOR DYNAMIC LOADING
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    /* ELEMENTS */
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
-    const navItems = document.querySelectorAll(".nav-item");
-    const navLinks = document.querySelectorAll(".nav-link");
-    const dropdownLinks = document.querySelectorAll(".toggle-sub");
-
-    /* =====================================================
-       MAIN MOBILE MENU TOGGLE
-    ===================================================== */
-    menuToggle.addEventListener("click", function (e) {
-
-        e.stopPropagation();
-
-        navMenu.classList.toggle("active");
-
-        /* CHANGE ICON */
-        if (navMenu.classList.contains("active")) {
-            menuToggle.innerHTML = "✕";
-        } else {
-            menuToggle.innerHTML = "☰";
-        }
-    });
-
-    /* =====================================================
-       MOBILE DROPDOWN TOGGLE
-    ===================================================== */
-    dropdownLinks.forEach(link => {
-
-        link.addEventListener("click", function (e) {
-
-            if (window.innerWidth <= 768) {
-
-                e.preventDefault();
-
-                const parentItem = this.parentElement;
-
-                /* CLOSE OTHER OPEN DROPDOWNS */
-                navItems.forEach(item => {
-
-                    if (item !== parentItem) {
-                        item.classList.remove("active");
-                    }
-                });
-
-                /* TOGGLE CURRENT */
-                parentItem.classList.toggle("active");
-            }
-        });
-    });
-
-    /* =====================================================
-       CLOSE MENU AFTER CLICKING DROPDOWN LINK
-    ===================================================== */
-    document.querySelectorAll(".dropdown-menu a").forEach(link => {
-
-        link.addEventListener("click", function () {
-
-            if (window.innerWidth <= 768) {
-
-                navMenu.classList.remove("active");
-
-                menuToggle.innerHTML = "☰";
-
-                navItems.forEach(item => {
-                    item.classList.remove("active");
-                });
-            }
-        });
-    });
-
-    /* =====================================================
-       SMOOTH SCROLL FOR HASH LINKS
-    ===================================================== */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-        anchor.addEventListener("click", function (e) {
-
-            const href = this.getAttribute("href");
-
-            if (href !== "#" && document.querySelector(href)) {
-
-                e.preventDefault();
-
-                const target = document.querySelector(href);
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-                /* CLOSE MOBILE MENU */
-                if (window.innerWidth <= 768) {
-
-                    navMenu.classList.remove("active");
-
-                    menuToggle.innerHTML = "☰";
-
-                    navItems.forEach(item => {
-                        item.classList.remove("active");
-                    });
-                }
-            }
-        });
-    });
-
-    /* =====================================================
-       HIGHLIGHT CURRENT PAGE
-    ===================================================== */
-    navLinks.forEach(link => {
-
+// Highlight current page immediately if possible
+function highlightCurrentPage() {
+    document.querySelectorAll(".nav-link").forEach(link => {
         if (link.href === window.location.href) {
-
             link.style.color = "#d4a574";
             link.style.fontWeight = "700";
         }
     });
+}
+highlightCurrentPage();
 
-    /* =====================================================
-       CLOSE MENU WHEN CLICKING OUTSIDE
-    ===================================================== */
-    document.addEventListener("click", function (e) {
+// Event Delegation handles all clicks, even on dynamically loaded elements
+document.addEventListener("click", function (e) {
+    const navMenu = document.getElementById("navMenu");
+    const menuToggle = document.getElementById("menuToggle");
 
-        if (window.innerWidth > 768) return;
+    // 1. MAIN MOBILE MENU TOGGLE
+    const toggleBtn = e.target.closest("#menuToggle");
+    if (toggleBtn && navMenu) {
+        e.preventDefault();
+        navMenu.classList.toggle("active");
+        toggleBtn.innerHTML = navMenu.classList.contains("active") ? "✕" : "☰";
+        return; 
+    }
 
-        const clickedInsideNav =
-            e.target.closest("nav") ||
-            e.target.closest("#menuToggle");
+    // 2. MOBILE DROPDOWN TOGGLE (Only expands/collapses menus)
+    const dropdownToggle = e.target.closest(".toggle-sub");
+    if (dropdownToggle && window.innerWidth <= 768) {
+        e.preventDefault();
+        const parentItem = dropdownToggle.parentElement;
 
+        // Close other open dropdowns
+        document.querySelectorAll(".nav-item").forEach(item => {
+            if (item !== parentItem) {
+                item.classList.remove("active");
+            }
+        });
+
+        // Toggle the clicked one
+        parentItem.classList.toggle("active");
+        return;
+    }
+
+    // 3. SMOOTH SCROLL FOR HASH LINKS & DROPDOWN LINKS
+    const link = e.target.closest('a');
+    if (link && navMenu && navMenu.classList.contains("active") && window.innerWidth <= 768) {
+        // If they click a valid link inside the menu (that isn't just a dropdown toggler)
+        if (!link.classList.contains("toggle-sub") || link.getAttribute("href") !== "#") {
+            navMenu.classList.remove("active");
+            if (menuToggle) menuToggle.innerHTML = "☰";
+            document.querySelectorAll(".nav-item").forEach(item => {
+                item.classList.remove("active");
+            });
+
+            // Smooth scroll handler for anchor links
+            const href = link.getAttribute("href");
+            if (href && href.startsWith("#") && href !== "#") {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            }
+        }
+    }
+
+    // 4. CLOSE MENU WHEN CLICKING OUTSIDE
+    if (window.innerWidth <= 768 && navMenu && navMenu.classList.contains("active")) {
+        const clickedInsideNav = e.target.closest("nav") || e.target.closest("#menuToggle");
         if (!clickedInsideNav) {
-
             navMenu.classList.remove("active");
-
-            menuToggle.innerHTML = "☰";
-
-            navItems.forEach(item => {
+            if (menuToggle) menuToggle.innerHTML = "☰";
+            document.querySelectorAll(".nav-item").forEach(item => {
                 item.classList.remove("active");
             });
         }
-    });
-
-    /* =====================================================
-       RESET MENU ON DESKTOP RESIZE
-    ===================================================== */
-    window.addEventListener("resize", function () {
-
-        if (window.innerWidth > 768) {
-
-            navMenu.classList.remove("active");
-
-            menuToggle.innerHTML = "☰";
-
-            navItems.forEach(item => {
-                item.classList.remove("active");
-            });
-        }
-    });
-
+    }
 });
 
+// 5. RESET MENU ON DESKTOP RESIZE
+window.addEventListener("resize", function () {
+    if (window.innerWidth > 768) {
+        const navMenu = document.getElementById("navMenu");
+        const menuToggle = document.getElementById("menuToggle");
+        
+        if (navMenu) navMenu.classList.remove("active");
+        if (menuToggle) menuToggle.innerHTML = "☰";
+        
+        document.querySelectorAll(".nav-item").forEach(item => {
+            item.classList.remove("active");
+        });
+    }
+});
 </script>
